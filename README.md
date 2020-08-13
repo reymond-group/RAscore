@@ -47,9 +47,11 @@ scorer.predict('CC1=CN=C(C(=C1OC)C)CS(=O)C2=NC3=C(N2)C=C(C=C3)OC')
 scorer.predict('CN1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5')
 8.316945e-07
 ```
-## Performance on test set
-
+## Performance on Test Set
+* Test set contains ca. 20,000 compounds from ChEMBL
+* The model was able to separate clusters of solved/unsolved compounds as found by computing the average linkage
+* RAscore can better differentiate between solved/unsolved compounds than existing methods.
 ![alt text](RAscore/images/RA_Score_histogram.png)
 
-Average linkage computed as below:
+## Computation of Average Linkage 
 ![alt text](RAscore/images/average_linkage.png)
