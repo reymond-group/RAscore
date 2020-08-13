@@ -4,7 +4,7 @@
  * The tool has been trained on 200,000 compounds from ChEMBL and so is limited to compounds within similar regions of chemical space. It is intended to predict the retrosyntehtic accessibility of bioactive molecules.
  * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work.
 
-![TOC](https://github.com/reymond-group/RAscore/tree/master/RAscore/images/TOC.tif?raw=true)
+![TOC](https://github.com/reymond-group/RAscore/tree/master/RAscore/images/TOC.png)
 
 ## Installation 
 
@@ -49,7 +49,7 @@ scorer.predict('CN1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5')
 ```
 ## Performance on test set
 
-![RAscore](https://github.com/reymond-group/RAscore/tree/master/RAscore/images/RA_Score_average_linkage_roc.tif?raw=true)
+![RAscore](https://github.com/reymond-group/RAscore/tree/master/RAscore/images/RA_Score_average_linkage_roc.png)
 
 Average linkage computed as below:
 ![Average Likage](https://github.com/reymond-group/RAscore/tree/master/RAscore/images/average_linkage.png)
