@@ -34,9 +34,9 @@ If you want to retrain models, or train your own models using the hyperparameter
 `pip install -r requirements.txt`
 
 The SYBA, SCscore and SAscore should also be downloaded for descriptor calculations and training scripts modified to reflect the locations of the models:
-https://github.com/lich-uct/syba
-https://github.com/connorcoley/scscore
-https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score
+* https://github.com/lich-uct/syba
+* https://github.com/connorcoley/scscore
+* https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score
 
 ## Usage
 ```

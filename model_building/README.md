@@ -26,10 +26,10 @@ If you want to retrain models, or train your own models using the hyperparameter
 `pip install -r requirements.txt`
 
 The SYBA, SCscore and SAscore should also be downloaded for descriptor calculations and training scripts modified to reflect the locations of the models:
-https://github.com/lich-uct/syba
-https://github.com/connorcoley/scscore
-https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score
+* https://github.com/lich-uct/syba
+* https://github.com/connorcoley/scscore
+* https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score
 
 ## Training Models
 
-The folder /example_classification_configs contains example configuration files to train a variety of classifiers. The configuration file should be changed to reflect the paths of the training and test sets, and the output directory. A variety of descriptors have been implemented as found in the file 'descriptors.py'. These can be specified in the configuration file.
+The folder ./example_classification_configs contains example configuration files to train a variety of classifiers. The configuration file should be changed to reflect the paths of the training and test sets, and the output directory. A variety of descriptors have been implemented as found in the file 'descriptors.py'. These can be specified in the configuration file.
