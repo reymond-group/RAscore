@@ -52,4 +52,4 @@ scorer.predict('CN1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5')
 ![alt text](https://https://github.com/reymond-group/RAscore/tree/master/RAscore/images/RA_Score_average_linkage_roc.tif?raw=true)
 
 Average linkage computed as below:
-![alt text](https://https://github.com/reymond-group/RAscore/tree/master/RAscore/images/average_linkage_roc.tif?raw=true)
+![alt text](https://https://github.com/reymond-group/RAscore/tree/master/RAscore/images/average_linkage_roc.png?raw=true)
