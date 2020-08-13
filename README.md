@@ -8,32 +8,27 @@
 
 Follow the steps in the defined order to avoid conflicts.
 
-1. 
-Create an environment:
-´conda create --name myenv´
+1. Create an environment:
+`conda create --name myenv`
 
 or use an existing environment 
 
-2. 
-Install rdkit 2020.03 (if already installed skip this step)
-´conda install -c rdkit rdkit -y´
+2. Install rdkit 2020.03 and tensorflow 2 (if already installed skip this step)
+`conda install -c rdkit rdkit -y`
+`conda install -c anaconda tensorflow>=2.1.0 -y`
 
-Install tensorflow 
-´conda install -c anaconda tensorflow>=2.1.0 -y´
-
-3. 
-Clone the repository 
-´git clone https://github.com/reymond-group/RAscore.git´
+3. Clone the RAscore repository 
+`git clone https://github.com/reymond-group/RAscore.git`
 
 change directory to the repository
-´cd RAscore´
+`cd RAscore`
 
-4. 
-Install RAscore
-´python -m pip install -e .´
+4. Install RAscore
+`python -m pip install -e .`
 
 ## Usage
->>´from RAscore import RAscore´
->>´scorer = RAscore.RAScorer('<path-to-repo>/RAscore/RAscore/model/model.h5')´
->>´scorer.predict('CC1=C(C(=CC=C1)C)N(CC(=O)NC2=CC=C(C=C2)C3=NOC=N3)C(=O)C4CCS(=O)(=O)CC4')´
-1.0
+```
+from RAscore import RAscore
+scorer = RAscore.RAScorer('<path-to-repo>/RAscore/RAscore/model/model.h5')
+scorer.predict('CC1=C(C(=CC=C1)C)N(CC(=O)NC2=CC=C(C=C2)C3=NOC=N3)C(=O)C4CCS(=O)(=O)CC4')
+```
