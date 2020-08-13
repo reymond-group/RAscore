@@ -32,4 +32,5 @@ The SYBA, SCscore and SAscore should also be downloaded for descriptor calculati
 
 ## Training Models
 
-The folder ./example_classification_configs contains example configuration files to train a variety of classifiers. The configuration file should be changed to reflect the paths of the training and test sets, and the output directory. A variety of descriptors have been implemented as found in the file 'descriptors.py'. These can be specified in the configuration file.
+The folder *example_classification_configs* contains example configuration files to train a variety of classifiers.  The configuration file should be changed to reflect the paths of the training and test sets, and the output directory.  A variety of descriptors have been implemented as found in the file *descriptors.py*. These can be specified in the configuration file.
+
