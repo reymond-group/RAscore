@@ -34,9 +34,9 @@ The SYBA, SCscore and SAscore should also be downloaded for descriptor calculati
 ### Configuration Files
 The folder *example_classification_configs* contains example configuration files to train a variety of classifiers.\
 The configuration file should be changed to reflect the paths of the training and test sets, and the output directory.\
-A variety of descriptors have been implemented as found in the file *descriptors.py*. These can be specified in the configuration file.\\
+A variety of descriptors have been implemented as found in the file *descriptors.py*. These can be specified in the configuration file.\
 
-For instance consider the configuration file below:\
+For instance consider the configuration file below:
 * Specify: 
     * the path to the training data (.csv)
     * the path to the test data (.csv)
@@ -102,9 +102,9 @@ or for the feed forward neural network call:\
 `python optimiser_dnn.py --config <path-to-config-file>`
 
 ### Building 
-Once optimisation is complete a .csv file containing the optimisation trials and a .json containing the best parameters and best values found will be present in the output folder specified in the config file.\
+Once optimisation is complete a .csv file containing the optimisation trials and a .json containing the best parameters and best values found will be present in the output folder specified in the config file.
 
-*Note: Building the model uses the test set specified and has not been seen previously during optimisationt*\
+*Note: Building the model uses the test set specified and has not been seen previously during optimisation*
 
 To optimise and find favourable hyperparameters call:\
 `python optimiser.py --config <path-to-config-file> --best_params <path-to-best-parameter-file>`
