@@ -4,6 +4,8 @@
  * The tool has been trained on 200,000 compounds from ChEMBL and so is limited to compounds within similar regions of chemical space. It is intended to predict the retrosyntehtic accessibility of bioactive molecules.
  * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work.
 
+![alt text](https://github.com/reymond-group/RAscore.git/blob/master/RAScore/images/TOC.tif?raw=true)
+
 ## Installation 
 
 Follow the steps in the defined order to avoid conflicts.
@@ -14,8 +16,10 @@ Follow the steps in the defined order to avoid conflicts.
 or use an existing environment 
 
 2. Install rdkit 2020.03 and tensorflow 2 (if already installed skip this step)
-`conda install -c rdkit rdkit -y`
-`conda install -c anaconda tensorflow>=2.1.0 -y`
+```
+conda install -c rdkit rdkit -y
+conda install -c anaconda tensorflow>=2.1.0 -y
+```
 
 3. Clone the RAscore repository 
 `git clone https://github.com/reymond-group/RAscore.git`
