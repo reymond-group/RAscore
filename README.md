@@ -49,7 +49,7 @@ scorer.predict('CN1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5')
 ```
 ## Performance on test set
 
-![alt text](RAscore/images/RA_Score_average_linkage_roc.png)
+![alt text](RAscore/images/RA_Score_average_linkage_roc.tif)
 
 Average linkage computed as below:
 ![alt text](RAscore/images/average_linkage.png)
