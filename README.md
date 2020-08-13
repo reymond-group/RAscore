@@ -4,7 +4,7 @@
  * The tool has been trained on 200,000 compounds from ChEMBL and so is limited to compounds within similar regions of chemical space. It is intended to predict the retrosyntehtic accessibility of bioactive molecules.
  * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work.
 
-![alt text](https://github.com/reymond-group/RAscore.git/blob/master/RAScore/images/TOC.tif?raw=true)
+![alt text](https://github.com/reymond-group/RAscore.git/RAScore/images/TOC.tif?raw=true)
 
 ## Installation 
 
@@ -34,5 +34,16 @@ change directory to the repository
 ```
 from RAscore import RAscore
 scorer = RAscore.RAScorer('<path-to-repo>/RAscore/RAscore/model/model.h5')
-scorer.predict('CC1=C(C(=CC=C1)C)N(CC(=O)NC2=CC=C(C=C2)C3=NOC=N3)C(=O)C4CCS(=O)(=O)CC4')
+
+#Imatinib mesylate
+scorer.predict('CC1=C(C=C(C=C1)NC(=O)C2=CC=C(C=C2)CN3CCN(CC3)C)NC4=NC=CC(=N4)C5=CN=CC=C5.CS(=O)(=O)O')
+0.99522984
+
+#Omeprazole
+scorer.predict('CC1=CN=C(C(=C1OC)C)CS(=O)C2=NC3=C(N2)C=C(C=C3)OC')
+0.99999106
+
+#Morphine - Illustrates problem synthesis planning tools face with complex ring systems
+scorer.predict('CN1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5')
+8.316945e-07
 ```
