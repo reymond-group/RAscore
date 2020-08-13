@@ -6,7 +6,7 @@
 "cross_validation": 5,
 "train_size": 0.9,
 "test_size": 0.1,
-"descriptor": "ecfp_counts",
+"descriptor": "fcfp_counts",
 "n_trials": 500,
 "algorithm": {"SVC": {
   "C": {

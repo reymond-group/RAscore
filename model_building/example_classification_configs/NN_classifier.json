@@ -6,7 +6,7 @@
 "test_size": 0.1,
 "batch_size": 256,
 "epochs": 100,
-"descriptor": "SA_score",
+"descriptor": "fcfp_counts",
 "n_trials": 100,
 "algorithm": {
     "DNNClassifier": {
