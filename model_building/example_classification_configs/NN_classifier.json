@@ -1,0 +1,25 @@
+{
+"train_data": "<path-to-dataset>/train.csv",
+"test_data": "<path-to-dataset>/test.csv",
+"out_dir": "<path-to-output-directory>/DNN_chembl_qed_score/",
+"train_size": 0.9,
+"test_size": 0.1,
+"batch_size": 256,
+"epochs": 100,
+"descriptor": "SA_score",
+"n_trials": 100,
+"algorithm": {
+    "DNNClassifier": {
+    "layer_1": [128, 256, 512],
+    "activation_1": ["relu", "elu", "selu", "linear"],
+    "dropout_1": 0.1,
+    "max_layers": 10,
+    "layer_size": [128, 256, 512],
+    "layer_activations": ["relu", "elu", "selu", "linear"],
+    "layer_droput": {"low": 0,
+                    "high": 0.5},
+    "learning_rate": {"low": 1e-5,
+                    "high": 1e-1}
+        }   
+    }
+}

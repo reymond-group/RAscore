@@ -1,0 +1,23 @@
+{
+"train_data": "<path-to-dataset>/train.csv",
+"test_data": "<path-to-dataset>/test.csv",
+"out_dir": "<path-to-output-directory>/AdaBoostClassifier",
+"n_jobs": 6, 
+"cross_validation": 5,
+"train_size": 0.9,
+"test_size": 0.1,
+"descriptor": "ecfp_counts",
+"n_trials": 500,
+"algorithm": {
+    "AdaBoostClassifier": {
+    "learning_rate": {
+        "low": 0.5,
+        "high": 1
+    },
+    "n_estimators": {
+        "low": 50,
+        "high": 150
+    }
+}
+            }
+}

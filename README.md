@@ -30,6 +30,14 @@ change directory to the repository
 4. Install RAscore
 `python -m pip install -e .`
 
+If you want to retrain models, or train your own models using the hyperparameter optimisation framework found in the 'model_building' folder, then the following should be installed in the environemnt also:
+`pip install -r requirements.txt`
+
+The SYBA, SCscore and SAscore should also be downloaded for descriptor calculations and training scripts modified to reflect the locations of the models:
+https://github.com/lich-uct/syba
+https://github.com/connorcoley/scscore
+https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score
+
 ## Usage
 ```
 from RAscore import RAscore
@@ -47,6 +55,7 @@ scorer.predict('CC1=CN=C(C(=C1OC)C)CS(=O)C2=NC3=C(N2)C=C(C=C3)OC')
 scorer.predict('CN1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5')
 8.316945e-07
 ```
+
 ## Performance on Test Set
 * Test set contains ca. 20,000 compounds from ChEMBL
 * The model was able to separate clusters of solved/unsolved compounds as found by computing the average linkage
