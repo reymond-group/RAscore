@@ -10,7 +10,7 @@
 
 Follow the steps in the defined order to avoid conflicts.
 
-1. Create an environment (note: the python version must be >=3.7):
+1. Create an environment (note: the python version must be >=3.7):\
 `conda create --name myenv python=3.7`
 
 or use an existing environment 
@@ -30,7 +30,7 @@ change directory to the repository
 4. Install RAscore
 `python -m pip install -e .`
 
-If you want to retrain models, or train your own models using the hyperparameter optimisation framework found in the 'model_building' folder, then the following should be installed in the environemnt also:
+If you want to retrain models, or train your own models using the hyperparameter optimisation framework found in the 'model_building' folder, then the following should be installed in the environemnt also:\
 `pip install -r requirements.txt`
 
 The SYBA, SCscore and SAscore should also be downloaded for descriptor calculations and training scripts modified to reflect the locations of the models:
