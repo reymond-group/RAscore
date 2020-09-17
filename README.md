@@ -2,7 +2,7 @@
  * RAscore is a score learned from the predictions of a computer aided synthesis planning tool (AiZynthfinder: https://github.com/MolecularAI/aizynthfinder). 
  * **RAscore is intended to be a binary score, indicating whether the underlying computer aided synthesis planning tool can find a route (1) or not (0) to a given compound.** 
  * The tool has been trained on 200,000 compounds from ChEMBL and so is limited to compounds within similar regions of chemical space. It is intended to predict the retrosyntehtic accessibility of bioactive molecules.
- * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work.
+ * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work. In this case the model will need to be switched to `GDBscore`
 
 ![alt text](RAscore/images/TOC.png)
 
@@ -41,7 +41,7 @@ The SYBA, SCscore and SAscore should also be downloaded for descriptor calculati
 ## Usage
 ```
 from RAscore import RAscore
-scorer = RAscore.RAScorer('<path-to-repo>/RAscore/RAscore/model/model.h5')
+scorer = RAscore.RAScorer('<path-to-repo>/RAscore/RAscore/model/rascore.h5')
 
 #Imatinib mesylate
 scorer.predict('CC1=C(C=C(C=C1)NC(=O)C2=CC=C(C=C2)CN3CCN(CC3)C)NC4=NC=CC(=N4)C5=CN=CC=C5.CS(=O)(=O)O')
