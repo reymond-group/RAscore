@@ -2,7 +2,7 @@
  * RAscore is a score learned from the predictions of a computer aided synthesis planning tool (AiZynthfinder: https://github.com/MolecularAI/aizynthfinder). 
  * **RAscore is intended to be a binary score, indicating whether the underlying computer aided synthesis planning tool can find a route (1) or not (0) to a given compound.** 
  * The tool has been trained on 200,000 compounds from ChEMBL and so is limited to compounds within similar regions of chemical space. It is intended to predict the retrosyntehtic accessibility of bioactive molecules.
- * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work. In this case the model will need to be switched to `GDBscore`
+ * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work. In this case the model will need to be switched to `GDBscore`, the corresponding models can be found in the models folder or downloaded from the pre-print server.
 
 ![alt text](RAscore/images/TOC.png)
 
@@ -15,10 +15,11 @@ Follow the steps in the defined order to avoid conflicts.
 
 or use an existing environment 
 
-2. Install rdkit 2020.03 and tensorflow 2 (if already installed skip this step)
+2. Install rdkit 2020.03, tensorflow 2, and XGboost (if already installed skip this step)
 ```
 conda install -c rdkit rdkit -y
 conda install -c anaconda tensorflow>=2.1.0 -y
+pip install xgboost
 ```
 
 3. Clone the RAscore repository 
@@ -30,6 +31,10 @@ change directory to the repository
 4. Install RAscore
 `python -m pip install -e .`
 
+5. Unzip models into models folder. A zip file containing the models is also available on the pre-print server.
+`cd RAscore/model/`
+`unzip models`
+
 If you want to retrain models, or train your own models using the hyperparameter optimisation framework found in the 'model_building' folder, then the following should be installed in the environemnt also:\
 `pip install -r requirements.txt`
 
@@ -39,21 +44,46 @@ The SYBA, SCscore and SAscore should also be downloaded for descriptor calculati
 * https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score
 
 ## Usage
+Depending on if you would like to use the XGB based or Tensorflow based models you can import different modules.
+
+The RAscore models are contained in the following folders:
+* RAscore
+    * DNN_chembl_fcfp_counts
+    * XGB_chembl_ecfp_counts
+* GDBscore
+    * DNN_gdbchembl_fcfp_counts
+    * XGB_gdbchembl_ecfp_counts
+
 ```
-from RAscore import RAscore
-scorer = RAscore.RAScorer('<path-to-repo>/RAscore/RAscore/model/rascore.h5')
+from RAscore import RAscore_NN #For tensorflow and keras based models
+from RAscore import RAscore_XGB #For XGB based models
+
+nn_scorer = RAscore_NN.RAScorerNN('<path-to-repo>/RAscore/RAscore/model/DNN_chembl_fcfp_counts/model.h5')
+xgb_scorer = RAscore_XBG.RAScorerXGB('<path-to-repo>/RAscore/RAscore/model/XGB_chembl_ecfp_counts/model.pkl')
 
 #Imatinib mesylate
-scorer.predict('CC1=C(C=C(C=C1)NC(=O)C2=CC=C(C=C2)CN3CCN(CC3)C)NC4=NC=CC(=N4)C5=CN=CC=C5.CS(=O)(=O)O')
+imatinib_mesylate = 'CC1=C(C=C(C=C1)NC(=O)C2=CC=C(C=C2)CN3CCN(CC3)C)NC4=NC=CC(=N4)C5=CN=CC=C5.CS(=O)(=O)O'
+nn_scorer.predict(imatinib_mesylate)
 0.99522984
 
+xgb_scorer.predict(imatinib_mesylate)
+0.99259007
+
 #Omeprazole
-scorer.predict('CC1=CN=C(C(=C1OC)C)CS(=O)C2=NC3=C(N2)C=C(C=C3)OC')
+omeprazole = 'CC1=CN=C(C(=C1OC)C)CS(=O)C2=NC3=C(N2)C=C(C=C3)OC'
+nn_scorer.predict(omeprazole)
 0.99999106
 
+xgb_scorer.predict(omeprazole)
+0.9556329
+
 #Morphine - Illustrates problem synthesis planning tools face with complex ring systems
-scorer.predict('CN1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5')
+morphine = 'CN1CC[C@]23c4c5ccc(O)c4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5'
+nn_scorer.predict(morphine)
 8.316945e-07
+
+xgb_scorer.predict(morphine)
+0.0028359715
 ```
 
 ## Performance on Test Set
