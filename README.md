@@ -2,7 +2,7 @@
  * RAscore is a score learned from the predictions of a computer aided synthesis planning tool (AiZynthfinder: https://github.com/MolecularAI/aizynthfinder). 
  * **RAscore is intended to be a binary score, indicating whether the underlying computer aided synthesis planning tool can find a route (1) or not (0) to a given compound.** 
  * The tool has been trained on 200,000 compounds from ChEMBL and so is limited to compounds within similar regions of chemical space. It is intended to predict the retrosyntehtic accessibility of bioactive molecules.
- * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work. In this case the model will need to be switched to `GDBscore`, the corresponding models can be found in the models folder or downloaded from the pre-print server.
+ * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work.\ In this case the model will need to be switched to `GDBscore`, the corresponding models can be found in the models folder or downloaded from the pre-print server.
 
 ![alt text](RAscore/images/TOC.png)
 
@@ -32,7 +32,7 @@ change directory to the repository
 `python -m pip install -e .`
 
 5. Unzip models into models folder. A zip file containing the models is also available on the pre-print server.
-`cd RAscore/model/`
+`cd RAscore/model/`\
 `unzip models`
 
 If you want to retrain models, or train your own models using the hyperparameter optimisation framework found in the 'model_building' folder, then the following should be installed in the environemnt also:\
