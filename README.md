@@ -21,7 +21,7 @@ or use an existing environment
 conda install -c rdkit rdkit -y
 conda install -c anaconda tensorflow>=2.1.0 -y
 pip install -U scikit-learn
-pip install xgboost
+pip install xgboost tqdm
 ```
 
 3. Clone the RAscore repository 
@@ -46,7 +46,8 @@ The SYBA, SCscore and SAscore should also be downloaded for descriptor calculati
 * https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score
 
 ## Usage
-Depending on if you would like to use the XGB based or Tensorflow based models you can import different modules.
+### Importing in Python
+Depending on if you would like to use the XGB based or Tensorflow based models you can import different modules. 
 
 The RAscore models are contained in the following folders:
 * RAscore
@@ -86,6 +87,33 @@ nn_scorer.predict(morphine)
 
 xgb_scorer.predict(morphine)
 0.0028359715
+```
+
+### Command Line Interface
+A command line interface is provided which gives the flexibility of specifying models.\
+The interface can be found at:\ 
+`RAscore/command_line_interface.py`
+```
+Usage: command_line_interface.py [OPTIONS]
+
+Options:
+  -f, --file_path TEXT      Absolute path to input file containing one SMILES
+                            on each line. The column should be labelled
+                            "SMILES" or if another header is used, specify it
+                            as an option
+
+  -c, --column_header TEXT  The name given to the singular column in the file
+                            which contains the SMILES. The column must be
+                            named.
+
+  -o, --output_path TEXT    Output file path
+  -m, --model_path TEXT     Absolute path to the model to use, if .h5 file
+                            neural network in tensorflow/keras, if .pkl then
+                            XGBoost
+
+  --help                    Show this message and exit.
+
+python command_line_interface.py -f <path-to-smiles-file> -c SMILES -o <path-to-output-file> -m <path-to-model-file>
 ```
 
 ## Performance on Test Set
