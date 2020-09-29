@@ -20,6 +20,7 @@ or use an existing environment
 ```
 conda install -c rdkit rdkit -y
 conda install -c anaconda tensorflow>=2.1.0 -y
+pip install -U scikit-learn
 pip install xgboost
 ```
 
@@ -59,8 +60,8 @@ The RAscore models are contained in the following folders:
 from RAscore import RAscore_NN #For tensorflow and keras based models
 from RAscore import RAscore_XGB #For XGB based models
 
-nn_scorer = RAscore_NN.RAScorerNN('<path-to-repo>/RAscore/RAscore/model/DNN_chembl_fcfp_counts/model.h5')
-xgb_scorer = RAscore_XBG.RAScorerXGB('<path-to-repo>/RAscore/RAscore/model/XGB_chembl_ecfp_counts/model.pkl')
+nn_scorer = RAscore_NN.RAScorerNN('<path-to-repo>/RAscore/RAscore/model/models/DNN_chembl_fcfp_counts/model.h5')
+xgb_scorer = RAscore_XGB.RAScorerXGB('<path-to-repo>/RAscore/RAscore/model/models/XGB_chembl_ecfp_counts/model.pkl')
 
 #Imatinib mesylate
 imatinib_mesylate = 'CC1=C(C=C(C=C1)NC(=O)C2=CC=C(C=C2)CN3CCN(CC3)C)NC4=NC=CC(=N4)C5=CN=CC=C5.CS(=O)(=O)O'
