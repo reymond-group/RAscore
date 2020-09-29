@@ -1,1 +1,0 @@
-{"layer_1": 512, "activation_1": "elu", "num_layers": 2, "units_2": 512, "activation_2": "elu", "dropout_2": 0.3763404621877295, "learning_rate": 2.8352913033149674e-05}

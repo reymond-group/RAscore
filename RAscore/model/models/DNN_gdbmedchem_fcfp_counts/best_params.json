@@ -1,1 +1,0 @@
-{"layer_1": 256, "activation_1": "selu", "num_layers": 4, "units_2": 256, "activation_2": "selu", "dropout_2": 0.3351649750556212, "units_3": 256, "activation_3": "relu", "dropout_3": 0.3091969803970582, "units_4": 128, "activation_4": "linear", "dropout_4": 0.08880343766790784, "learning_rate": 1.1980455039346292e-05}
