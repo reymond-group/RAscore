@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 @click.option(
     '--column_header',
     '-c',
-    default="SMILES"
+    default="SMILES",
     help='The name given to the singular column in the file which contains the SMILES'
 )
 @click.option(
