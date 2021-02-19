@@ -10,4 +10,9 @@ setuptools.setup(
     url="https://github.com/reymond-group/RAscore",
     packages=setuptools.find_packages(),
     python_requires='>=3.7',
+    entry_points = {
+        'console_scripts': [
+            'rascore = RAScore.command_line_interface.py:main',
+        ],
+    },
 )
