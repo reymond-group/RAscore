@@ -57,7 +57,7 @@ The RAscore models are contained in the following folders:
     * DNN_gdbchembl_fcfp_counts
     * XGB_gdbchembl_ecfp_counts
 
-```
+```python
 from RAscore import RAscore_NN #For tensorflow and keras based models
 from RAscore import RAscore_XGB #For XGB based models
 
@@ -90,11 +90,13 @@ xgb_scorer.predict(morphine)
 ```
 
 ### Command Line Interface
-A command line interface is provided which gives the flexibility of specifying models.\
-The interface can be found at:\ 
-`RAscore/command_line_interface.py`
+
+A command line interface is provided which gives the flexibility of specifying models.
+The interface can be found by running `RAscore` in your shell. Run
+`RAscore --help` to get the following help text:
+
 ```
-Usage: command_line_interface.py [OPTIONS]
+Usage: RAscore [OPTIONS]
 
 Options:
   -f, --file_path TEXT      Absolute path to input file containing one SMILES
@@ -113,7 +115,7 @@ Options:
 
   --help                    Show this message and exit.
 
-python command_line_interface.py -f <path-to-smiles-file> -c SMILES -o <path-to-output-file> -m <path-to-model-file>
+RAscore -f <path-to-smiles-file> -c SMILES -o <path-to-output-file> -m <path-to-model-file>
 ```
 
 ## Performance on Test Set
