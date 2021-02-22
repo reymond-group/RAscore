@@ -124,3 +124,9 @@ python command_line_interface.py -f <path-to-smiles-file> -c SMILES -o <path-to-
 
 ## Computation of Average Linkage 
 ![alt text](RAscore/images/average_linkage.png)
+
+## Citation
+The models have been published in Chemical Science
+
+Thakkar, A.; Chadimová, V.; Bjerrum, E. J.; Engkvist, O.; Reymond, J.-L. Retrosynthetic Accessibility Score (RAscore) – Rapid Machine Learned Synthesizability Classification from AI Driven Retrosynthetic Planning. Chem. Sci. 2021. https://doi.org/10.1039/d0sc05401a
+
