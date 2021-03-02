@@ -12,7 +12,7 @@ setuptools.setup(
     python_requires='>=3.7',
     entry_points = {
         'console_scripts': [
-            'RAscore = RAScore.command_line_interface.py:main',
+            'RAscore = RAScore.command_line_interface:main',
         ],
     },
 )
