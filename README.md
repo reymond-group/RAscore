@@ -1,7 +1,7 @@
 # Retrosynthetic Accessibility (RA) score
  * RAscore is a score learned from the predictions of a computer aided synthesis planning tool (AiZynthfinder: https://github.com/MolecularAI/aizynthfinder). 
  * **RAscore is intended to be a binary score, indicating whether the underlying computer aided synthesis planning tool can find a route (1) or not (0) to a given compound.** 
- * The tool has been trained on 200,000 compounds from ChEMBL and so is limited to compounds within similar regions of chemical space. It is intended to predict the retrosyntehtic accessibility of bioactive molecules.
+ * The tool has been trained on 200,000 compounds from ChEMBL and so is limited to compounds within similar regions of chemical space. It is intended to predict the retrosynthetic accessibility of bioactive molecules. (Data can be found in `data.zip`)
  * Attempts to use the score on more exotic compounds such as those found in the GDB databases will not work: 
     * In this case the model will need to be switched to `GDBscore`, the corresponding models can be found in the models folder or downloaded from the pre-print server.
 
@@ -13,15 +13,14 @@ Follow the steps in the defined order to avoid conflicts.
 
 1. Create an environment (note: the python version must be >=3.7):\
 `conda create --name myenv python=3.7`
+`conda activate myenv`
 
 or use an existing environment 
 
-2. Install rdkit 2020.03, tensorflow 2, and XGboost (if already installed skip this step)
+2. Install rdkit 2020.03 and tensorflow-gpu (if already installed skip this step). The cpu version of tensorflow should also work.
 ```
 conda install -c rdkit rdkit -y
-conda install -c anaconda tensorflow>=2.1.0 -y
-pip install -U scikit-learn
-pip install xgboost tqdm
+pip install tensorflow-gpu
 ```
 
 3. Clone the RAscore repository 
@@ -33,36 +32,18 @@ change directory to the repository
 4. Install RAscore
 `python -m pip install -e .`
 
-5. Unzip models into models folder. A zip file containing the models is also available on the pre-print server.
-`cd RAscore/model/`\
-`unzip models`
-
-If you want to retrain models, or train your own models using the hyperparameter optimisation framework found in the 'model_building' folder, then the following should be installed in the environemnt also:\
-`pip install -r requirements.txt`
-
-The SYBA, SCscore and SAscore should also be downloaded for descriptor calculations and training scripts modified to reflect the locations of the models:
-* https://github.com/lich-uct/syba
-* https://github.com/connorcoley/scscore
-* https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score
-
 ## Usage
 ### Importing in Python
 Depending on if you would like to use the XGB based or Tensorflow based models you can import different modules. 
 
-The RAscore models are contained in the following folders:
-* RAscore
-    * DNN_chembl_fcfp_counts
-    * XGB_chembl_ecfp_counts
-* GDBscore
-    * DNN_gdbchembl_fcfp_counts
-    * XGB_gdbchembl_ecfp_counts
+To walk through the example in a jupyter notebook refer to `rascore_usage.ipynb`
 
 ```
 from RAscore import RAscore_NN #For tensorflow and keras based models
 from RAscore import RAscore_XGB #For XGB based models
 
-nn_scorer = RAscore_NN.RAScorerNN('<path-to-repo>/RAscore/RAscore/model/models/DNN_chembl_fcfp_counts/model.h5')
-xgb_scorer = RAscore_XGB.RAScorerXGB('<path-to-repo>/RAscore/RAscore/model/models/XGB_chembl_ecfp_counts/model.pkl')
+nn_scorer = RAscore_NN.RAScorerNN() 
+xgb_scorer = RAscore_XGB.RAScorerXGB()
 
 #Imatinib mesylate
 imatinib_mesylate = 'CC1=C(C=C(C=C1)NC(=O)C2=CC=C(C=C2)CN3CCN(CC3)C)NC4=NC=CC(=N4)C5=CN=CC=C5.CS(=O)(=O)O'
@@ -90,11 +71,15 @@ xgb_scorer.predict(morphine)
 ```
 
 ### Command Line Interface
-A command line interface is provided which gives the flexibility of specifying models.\
-The interface can be found at:\ 
-`RAscore/command_line_interface.py`
+A command line interface is provided which allows batch processing and enables the flexibility of specifying models.\
 ```
-Usage: command_line_interface.py [OPTIONS]
+Usage: RAscore [OPTIONS]
+
+Example: A set of smiles `test.smi` are provided
+
+`RAscore -f test.smi -c SMILES -o test.csv`
+
+Default Model: XGBoost using ChEMBL and ECFP4 counts with features
 
 Options:
   -f, --file_path TEXT      Absolute path to input file containing one SMILES
@@ -112,9 +97,25 @@ Options:
                             XGBoost
 
   --help                    Show this message and exit.
-
-python command_line_interface.py -f <path-to-smiles-file> -c SMILES -o <path-to-output-file> -m <path-to-model-file>
 ```
+Further RAscore models are contained in the `RAscore/models/models.zip` folder if you wish to specify a different model than the default:
+* RAscore
+    * DNN_chembl_fcfp_counts
+    * XGB_chembl_ecfp_counts
+* GDBscore
+    * DNN_gdbchembl_fcfp_counts
+    * XGB_gdbchembl_ecfp_counts
+
+## Retraining  
+If you want to retrain models, or train your own models using the hyperparameter optimisation framework found in the 'model_building' folder, then the following should be installed in the environemnt aswell:\
+`pip install -e .[retraining]`
+
+The SYBA, SCscore and SAscore should also be downloaded for descriptor calculations and training scripts modified to reflect the locations of the models:
+* https://github.com/lich-uct/syba
+* https://github.com/connorcoley/scscore
+* https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score
+
+Please refer to the `model_building` folder for further information about retraining.
 
 ## Performance on Test Set
 * Test set contains ca. 20,000 compounds from ChEMBL
