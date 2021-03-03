@@ -22,6 +22,8 @@ jobs:
       - name: Install RDKit
         run: conda install -c conda-forge rdkit
       - name: Install dependencies
-        run: pip install tox
+        run: |
+          pip install -e .
+          pip install pytest
       - name: Run tests
-        run: tox -e py
+        run: pytest tests/
