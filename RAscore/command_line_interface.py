@@ -37,14 +37,15 @@ def main(file_path: str, output_path: str, model_path: str, column_header: str) 
     else:
         ValueError("Unrecognized file type")
 
-    if model_path.endswith(".h5"):
-        from RAscore import RAscore_NN  # For tensorflow and keras based models
-
-        scorer = RAscore_NN.RAScorerNN(model_path)
-    elif model_path.endswith(".pkl"):
+    if not model_path or model_path.endswith(".pkl"):
         from RAscore import RAscore_XGB  # For XGB based models
 
         scorer = RAscore_XGB.RAScorerXGB(model_path)
+
+    elif model_path.endswith(".h5"):
+        from RAscore import RAscore_NN  # For tensorflow and keras based models
+
+        scorer = RAscore_NN.RAScorerNN(model_path)
     else:
         ValueError(
             "Unrecognized model type, must end in .h5 for tensorflow/keras models or .pkl for xgboost"
