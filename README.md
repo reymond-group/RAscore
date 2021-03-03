@@ -12,7 +12,7 @@
 Follow the steps in the defined order to avoid conflicts.
 
 1. Create an environment (note: the python version must be >=3.7):\
-`conda create --name myenv python=3.7`
+`conda create --name myenv python=3.7`\
 `conda activate myenv`
 
 or use an existing environment 
