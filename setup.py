@@ -13,7 +13,7 @@ if __name__ == "__main__":
         license="MIT",
         license_file="LICENSE",
         zip_safe=False,
-        install_requires=["scikit-learn", "xgboost", "h5py", "click", "tqdm"],
+        install_requires=["scikit-learn", "xgboost", "h5py", "click", "tqdm", 'tensorflow'],
         extras_require={
             "retraining": [
                 "matplotlib",
@@ -30,6 +30,7 @@ if __name__ == "__main__":
         entry_points={
             "console_scripts": ["RAscore = RAscore.command_line_interface:main"]
         },
+        packages=setuptools.find_packages(),
         include_package_data=True,
         python_requires=">=3.7",
     )
