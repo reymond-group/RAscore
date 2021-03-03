@@ -1,0 +1,27 @@
+name: Tests
+
+on: [ push, pull_request ]
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        python-version: [ 3.8 ]
+    name: Tests
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup conda
+        uses: s-weigand/setup-conda@v1
+        with:
+          update-conda: true
+          python-version: ${{ matrix.python-version }}
+          conda-channels: anaconda, conda-forge, rdkit
+      - run: conda --version
+      - run: which python
+      - name: Install RDKit
+        run: conda install -c conda-forge rdkit
+      - name: Install dependencies
+        run: pip install pytest
+      - name: Run tests
+        run: pytest tests/
