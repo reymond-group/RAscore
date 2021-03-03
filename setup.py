@@ -13,7 +13,14 @@ if __name__ == "__main__":
         license="MIT",
         license_file="LICENSE",
         zip_safe=False,
-        install_requires=["scikit-learn", "xgboost", "h5py", "click", "tqdm", 'tensorflow'],
+        install_requires=[
+            "scikit-learn",
+            "xgboost",
+            "h5py",
+            "click",
+            "tqdm",
+            "tensorflow",
+        ],
         extras_require={
             "retraining": [
                 "matplotlib",
