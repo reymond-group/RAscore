@@ -17,10 +17,9 @@ Follow the steps in the defined order to avoid conflicts.
 
 or use an existing environment 
 
-2. Install rdkit 2020.03 and tensorflow-gpu (if already installed skip this step). The cpu version of tensorflow should also work.
+2. Install rdkit 2020.03 (if already installed skip this step)
 ```
 conda install -c rdkit rdkit -y
-pip install tensorflow-gpu
 ```
 
 3. Clone the RAscore repository 
