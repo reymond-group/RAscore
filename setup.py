@@ -30,6 +30,7 @@ if __name__ == "__main__":
         entry_points={
             "console_scripts": ["RAscore = RAscore.command_line_interface:main"]
         },
+        packages=setuptools.find_packages(),
         include_package_data=True,
         python_requires=">=3.7",
     )
