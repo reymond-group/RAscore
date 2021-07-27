@@ -22,14 +22,8 @@ or use an existing environment
 conda install -c rdkit rdkit -y
 ```
 
-3. Clone the RAscore repository 
-`git clone https://github.com/reymond-group/RAscore.git`
-
-change directory to the repository
-`cd RAscore`
-
-4. Install RAscore
-`python -m pip install -e .`
+3. Install RAscore 
+`pip install git+https://github.com/reymond-group/RAscore.git@master`
 
 ## Usage
 ### Importing in Python
