@@ -16,13 +16,13 @@
 
 Follow the steps in the defined order to avoid conflicts.
 
-1. Create an environment (**note: the python version must be == 3.7**):
+1. Create an environment (**note: the python version must be == 3.7, 3.8**):
 ```
 conda create --name myenv python=3.7
 conda activate myenv
 ```
 
-or use an existing environment with python == 3.7
+or use an existing environment with python >= 3.7
 
 2. Install rdkit 2020.03 (if already installed skip this step)
 ```
