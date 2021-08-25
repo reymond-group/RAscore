@@ -33,6 +33,8 @@ conda install -c rdkit rdkit -y
 ```
 pip install git+https://github.com/reymond-group/RAscore.git@master
 ```
+The models.zip file will have to be downloaded and after unzipping the path to the relevant model will need to be specified on model instantiation.
+
 or 
 
 Clone and install the repository using (models should be included):
