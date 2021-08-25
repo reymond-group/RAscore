@@ -10,15 +10,15 @@
 ## Known Issues
 * The models may not generalise well in regions of chemical space that deviate from the training domains (ChEMBL and GDB subsets in this case), this is a problem inherent to ML based classifiers.
 * The models have not been tested for the use case of molecular generation.
-**We highly recommend retraining the models on a sample of compounds representing your particular use case, the included data may be used to augment the data you generate**
+* **We highly recommend retraining the models on a sample of compounds representing your particular use case, the included data may be used to augment the data you generate**
 
 ## Installation 
 
 Follow the steps in the defined order to avoid conflicts.
 
-1. Create an environment (**note: the python version must be == 3.7**):\
+1. Create an environment (**note: the python version must be == 3.7**):
 ```
-conda create --name myenv python=3.7\
+conda create --name myenv python=3.7
 conda activate myenv
 ```
 
@@ -37,7 +37,7 @@ or
 
 Clone and install the repository using (models should be included):
 ```
-git clone https://github.com/reymond-group/RAscore.git\
+git clone https://github.com/reymond-group/RAscore.git
 pip install --editable .
 ```
 If the models are not automatically included check that the models.zip file exists and unzip it into the desired location.
